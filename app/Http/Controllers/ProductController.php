@@ -27,4 +27,24 @@ class ProductController extends Controller
 
         return view('products.index', compact('categories', 'products'));
     }
+
+    public function show(Product $product)
+    {
+        abort_if(!$product->is_active, 404);
+        
+        $product->load([
+            'category', 
+            'images' => fn ($q) => $q->orderByDesc('is_primary')->orderBy('sort_order'),
+            'variants'
+        ]);
+
+        $relatedProducts = Product::active()
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->with(['images' => fn ($q) => $q->orderByDesc('is_primary')->orderBy('sort_order')])
+            ->take(3)
+            ->get();
+
+        return view('products.show', compact('product', 'relatedProducts'));
+    }
 }

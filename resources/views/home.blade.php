@@ -126,7 +126,7 @@
                     </div>
                     
                     <div>
-                        <a href="#" class="border border-white/20 text-white px-8 py-4 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-colors duration-300 rounded-none inline-block">Explore Details</a>
+                        <a href="{{ route('products.show', $product->slug) }}" class="border border-white/20 text-white px-8 py-4 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-colors duration-300 rounded-none inline-block">Explore Details</a>
                     </div>
                 </div>
 

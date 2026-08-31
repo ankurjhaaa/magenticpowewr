@@ -31,15 +31,15 @@
             {{-- Desktop Nav --}}
             <div class="hidden lg:flex items-center gap-10 z-10">
                 <a href="{{ route('home') }}" class="text-[11px] font-semibold uppercase tracking-[0.2em] {{ request()->routeIs('home') ? 'text-brand-500' : 'text-white/60 hover:text-white' }} transition-colors">Home</a>
-                <a href="{{ route('home') }}#about" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">About Us</a>
+                <a href="{{ route('about') }}" class="text-[11px] font-semibold uppercase tracking-[0.2em] {{ request()->routeIs('about') ? 'text-brand-500' : 'text-white/60 hover:text-white' }} transition-colors">About Us</a>
                 <a href="{{ route('products') }}" class="text-[11px] font-semibold uppercase tracking-[0.2em] {{ request()->routeIs('products') ? 'text-brand-500' : 'text-white/60 hover:text-white' }} transition-colors">Batteries</a>
-                <a href="{{ route('home') }}#tech-section" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Technology</a>
-                <a href="/contact" class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">Contact</a>
+                <a href="{{ route('technology') }}" class="text-[11px] font-semibold uppercase tracking-[0.2em] {{ request()->routeIs('technology') ? 'text-brand-500' : 'text-white/60 hover:text-white' }} transition-colors">Technology</a>
+                <a href="{{ route('contact') }}" class="text-[11px] font-semibold uppercase tracking-[0.2em] {{ request()->routeIs('contact') ? 'text-brand-500' : 'text-white/60 hover:text-white' }} transition-colors">Contact</a>
             </div>
 
             {{-- Actions --}}
             <div class="flex items-center gap-4 z-10">
-                <a href="/contact" class="hidden sm:inline-flex items-center justify-center bg-brand-500 hover:bg-brand-400 text-black px-6 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-colors">
+                <a href="{{ route('contact') }}" class="hidden sm:inline-flex items-center justify-center bg-brand-500 hover:bg-brand-400 text-black px-6 py-2.5 rounded-none text-[11px] font-bold uppercase tracking-widest transition-colors">
                     Inquire Now
                 </a>
                 
@@ -62,12 +62,12 @@
             </svg>
         </button>
         <a href="{{ route('home') }}" class="text-2xl font-bold tracking-widest uppercase {{ request()->routeIs('home') ? 'text-brand-500' : 'text-white' }}">Home</a>
-        <a href="{{ route('home') }}#about" class="text-2xl font-bold text-white/60 tracking-widest uppercase hover:text-white transition-colors">About Us</a>
+        <a href="{{ route('about') }}" class="text-2xl font-bold tracking-widest uppercase hover:text-white transition-colors {{ request()->routeIs('about') ? 'text-brand-500' : 'text-white/60' }}">About Us</a>
         <a href="{{ route('products') }}" class="text-2xl font-bold tracking-widest uppercase hover:text-white transition-colors {{ request()->routeIs('products') ? 'text-brand-500' : 'text-white/60' }}">Batteries</a>
-        <a href="{{ route('home') }}#tech-section" class="text-2xl font-bold text-white/60 tracking-widest uppercase hover:text-white transition-colors">Technology</a>
-        <a href="/contact" class="text-2xl font-bold text-white/60 tracking-widest uppercase hover:text-white transition-colors">Contact</a>
+        <a href="{{ route('technology') }}" class="text-2xl font-bold tracking-widest uppercase hover:text-white transition-colors {{ request()->routeIs('technology') ? 'text-brand-500' : 'text-white/60' }}">Technology</a>
+        <a href="{{ route('contact') }}" class="text-2xl font-bold tracking-widest uppercase hover:text-white transition-colors {{ request()->routeIs('contact') ? 'text-brand-500' : 'text-white/60' }}">Contact</a>
         <div class="mt-8">
-            <a href="/contact" class="px-10 py-4 bg-brand-500 text-black font-bold uppercase tracking-widest rounded-full text-sm">Inquire Now</a>
+            <a href="/contact" class="px-10 py-4 bg-brand-500 text-black font-bold uppercase tracking-widest rounded-none text-sm">Inquire Now</a>
         </div>
     </div>
 
