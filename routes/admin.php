@@ -18,10 +18,10 @@ use App\Livewire\Admin\Settings\Edit as SettingsEdit;
 use App\Livewire\Admin\Faqs\Index as FaqsIndex;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('control-center')->name('admin.')->group(function () {
-    Route::middleware('guest')->group(function () {
-        Route::get('login', Login::class)->name('login');
-    });
+Route::middleware('guest')->group(function () {
+    Route::get('login', Login::class)->name('login');
+});
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('auth')->group(function () {
         Route::get('dashboard', Dashboard::class)->name('dashboard');
