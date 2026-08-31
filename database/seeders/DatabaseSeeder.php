@@ -32,6 +32,43 @@ class DatabaseSeeder extends Seeder
         );
 
         // ----------------------------------------------------
+        // 0.5 Banners
+        // ----------------------------------------------------
+        $bannersData = [
+            [
+                'title' => 'High-Performance Lithium Batteries',
+                'subtitle' => 'Powering the future of electric mobility with unmatched efficiency.',
+                'image' => 'banners/banner.png',
+                'button_text' => 'Explore Products',
+                'button_url' => '/products',
+                'is_active' => true,
+                'sort_order' => 0,
+            ],
+            [
+                'title' => 'Advanced BMS Technology',
+                'subtitle' => 'Ensuring safety, longevity, and peak performance for every cell.',
+                'image' => 'banners/banner.png',
+                'button_text' => 'Learn More',
+                'button_url' => '/about',
+                'is_active' => true,
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Commercial E-Rickshaw Packs',
+                'subtitle' => 'Heavy-duty power solutions built for maximum endurance.',
+                'image' => 'banners/banner.png',
+                'button_text' => 'Get a Quote',
+                'button_url' => '/contact',
+                'is_active' => true,
+                'sort_order' => 2,
+            ],
+        ];
+
+        foreach ($bannersData as $bannerData) {
+            \App\Models\Banner::query()->firstOrCreate(['title' => $bannerData['title']], $bannerData);
+        }
+
+        // ----------------------------------------------------
         // 1. Categories
         // ----------------------------------------------------
         $categoriesData = [
@@ -145,7 +182,30 @@ class DatabaseSeeder extends Seeder
             ];
 
             foreach ($productsData as $prod) {
-                Product::query()->firstOrCreate(['slug' => $prod['slug']], $prod);
+                $productModel = Product::query()->firstOrCreate(['slug' => $prod['slug']], $prod);
+
+                // Add 3 images using public/images/product.png
+                $sourceFile = public_path('images/product.png');
+                if (file_exists($sourceFile)) {
+                    $targetDir = storage_path('app/public/products');
+                    if (!is_dir($targetDir)) {
+                        mkdir($targetDir, 0755, true);
+                    }
+                    $fileName = 'product_' . $productModel->id . '.png';
+                    $targetPath = $targetDir . '/' . $fileName;
+                    copy($sourceFile, $targetPath);
+                    
+                    for ($i = 0; $i < 3; $i++) {
+                        \App\Models\ProductImage::updateOrCreate([
+                            'product_id' => $productModel->id,
+                            'sort_order' => $i,
+                        ], [
+                            'image_path' => 'products/' . $fileName,
+                            'alt_text' => $productModel->name . ' - Image ' . ($i + 1),
+                            'is_primary' => $i === 0,
+                        ]);
+                    }
+                }
             }
         }
 

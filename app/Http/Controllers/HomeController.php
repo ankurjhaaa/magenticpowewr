@@ -26,7 +26,7 @@ class HomeController extends Controller
                 'images' => fn ($query) => $query->orderByDesc('is_primary')->orderBy('sort_order'),
             ])
             ->latest()
-            ->limit(8)
+            ->limit(10)
             ->get();
 
         $company = CompanyProfile::query()->first();

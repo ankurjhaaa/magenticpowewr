@@ -1,0 +1,226 @@
+@import 'tailwindcss';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Neon Green / Lime — Magnatic EV */
+    --color-brand-400: #d9fb3f;
+    --color-brand-500: #ccff00;
+    --color-brand-600: #b3e600;
+
+    /* Pure Black System */
+    --color-carbon-900: #000000;
+    --color-carbon-800: #060606;
+    --color-carbon-700: #0c0c0c;
+}
+
+/* ========== LENIS ========== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ========== BASE ========== */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-carbon-900);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+
+/* Hidden scrollbar */
+::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+[x-cloak] { display: none !important; }
+
+/* ========== CUSTOM CURSOR (Desktop only) ========== */
+.custom-cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 12px; height: 12px;
+    background: var(--color-brand-500);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.35s cubic-bezier(.25,1,.5,1), height 0.35s cubic-bezier(.25,1,.5,1), background-color 0.3s, border-color 0.3s, opacity 0.3s;
+    mix-blend-mode: difference;
+    box-shadow: 0 0 15px rgba(204,255,0,0.6);
+    will-change: transform;
+}
+
+/* Hide on touch devices */
+@media (hover: none) {
+    .custom-cursor { display: none !important; }
+}
+
+.custom-cursor-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px; font-weight: 800;
+    letter-spacing: 3px;
+    color: #000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.cursor-hover-btn {
+    width: 60px; height: 60px;
+    background: transparent;
+    border: 1.5px solid var(--color-brand-500);
+    mix-blend-mode: normal;
+    box-shadow: 0 0 25px rgba(204,255,0,0.3);
+}
+
+.cursor-hover-product {
+    width: 100px; height: 100px;
+    background: var(--color-brand-500);
+    mix-blend-mode: normal;
+}
+.cursor-hover-product .custom-cursor-text { opacity: 1; }
+
+/* ========== MAGNETIC BUTTONS ========== */
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(.25,1,.5,1);
+}
+
+.btn-cinematic {
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(204,255,0,0.4);
+    color: var(--color-brand-500);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(.25,1,.5,1);
+    text-transform: uppercase;
+}
+
+.btn-cinematic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-brand-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(.25,1,.5,1);
+    z-index: -1;
+}
+
+.btn-cinematic:hover {
+    color: #000;
+    box-shadow: 0 0 50px rgba(204,255,0,0.25);
+    border-color: var(--color-brand-500);
+}
+
+.btn-cinematic:hover::before { transform: scaleX(1); }
+
+.btn-cinematic .arrow {
+    display: inline-block;
+    margin-left: 12px;
+    transition: transform 0.3s ease;
+}
+.btn-cinematic:hover .arrow { transform: translateX(8px); }
+
+/* Solid variant */
+.btn-solid {
+    padding: 1rem 2.5rem;
+    background: var(--color-brand-500);
+    color: #000;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    border-radius: 9999px;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+.btn-solid:hover {
+    background: var(--color-brand-400);
+    box-shadow: 0 0 40px rgba(204,255,0,0.3);
+}
+
+/* ========== SCENE CONTAINERS ========== */
+.scene-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========== 3D BATTERY ========== */
+.battery-3d-wrapper {
+    perspective: 1500px;
+    transform-style: preserve-3d;
+}
+
+.battery-layer {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+}
+
+/* ========== SCROLL INDICATOR ========== */
+@keyframes scrollDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* ========== RESPONSIVE BATTERY 3D ========== */
+@media (max-width: 768px) {
+    .battery-3d-wrapper {
+        width: 90vw !important;
+        max-width: none !important;
+    }
+    .tech-callout {
+        position: relative !important;
+        top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+        text-align: center !important;
+        margin: 1rem auto;
+    }
+    .tech-callout .absolute { display: none; } /* Hide connector lines on mobile */
+}
+
+/* ========== WHY MAGNATIC HORIZONTAL SCROLL ========== */
+.horizontal-panel {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* ========== UTILITY ANIMATIONS ========== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Road perspective for range scene */
+.rotate-x-75 {
+    transform: rotateX(75deg);
+}
