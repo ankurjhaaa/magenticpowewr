@@ -8,12 +8,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-neutral-950 text-neutral-100 antialiased">
-    @include('partials.public-header')
 
     <main>
         @yield('content')
     </main>
 
-    @include('partials.public-footer')
 </body>
 </html>
