@@ -33,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
                 }])
                 ->get();
             $view->with('sidebarCategories', $sidebarCategories);
+
+            // Fetch global settings
+            $settings = \App\Models\Setting::pluck('value', 'key')->toArray();
+            $view->with('siteSettings', $settings);
         });
     }
 

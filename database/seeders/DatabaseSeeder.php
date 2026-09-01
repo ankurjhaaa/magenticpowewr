@@ -470,5 +470,18 @@ class DatabaseSeeder extends Seeder
         foreach ($faqs as $faq) {
             Faq::query()->firstOrCreate(['question' => $faq['question']], $faq);
         }
+
+        // ----------------------------------------------------
+        // 10. Settings (Contact & Support)
+        // ----------------------------------------------------
+        $settings = [
+            ['key' => 'support_whatsapp', 'value' => '+919876543210', 'group' => 'contact', 'type' => 'string'],
+            ['key' => 'support_phone', 'value' => '+91 98765 43210', 'group' => 'contact', 'type' => 'string'],
+            ['key' => 'support_email', 'value' => 'support@magneticev.com', 'group' => 'contact', 'type' => 'string'],
+        ];
+
+        foreach ($settings as $setting) {
+            \App\Models\Setting::query()->updateOrCreate(['key' => $setting['key']], $setting);
+        }
     }
 }
