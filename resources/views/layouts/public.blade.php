@@ -15,7 +15,7 @@
 <body class="bg-carbon-900 text-white antialiased font-sans selection:bg-brand-500 selection:text-black flex flex-col min-h-screen">
     
     {{-- Cinematic Transparent Header --}}
-    <header class="fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-black/50 backdrop-blur-md border-b border-white/5" id="main-header">
+    <header class="fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-transparent border-b border-transparent" id="main-header">
         <nav class="relative w-full h-20 flex items-center justify-between px-6 lg:px-12">
             
             {{-- Left: Mobile Menu & Desktop Logo --}}
@@ -242,6 +242,18 @@
             btnElement.classList.remove('text-white', 'border-transparent');
             btnElement.classList.add('text-brand-500', 'bg-white/5', 'border-brand-500');
         }
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80', 'backdrop-blur-md', 'border-white/10');
+                header.classList.remove('bg-transparent', 'border-transparent');
+            } else {
+                header.classList.remove('bg-black/80', 'backdrop-blur-md', 'border-white/10');
+                header.classList.add('bg-transparent', 'border-transparent');
+            }
+        });
     </script>
 
     {{-- Main Content --}}

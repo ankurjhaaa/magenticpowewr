@@ -7,22 +7,8 @@
          ============================================================ --}}
     <section id="scene-hero" class="scene-container bg-black relative">
         <div class="absolute inset-0 z-0">
-            <img src="/images/banners.png" class="w-full h-full object-cover" id="hero-battery-img" alt="Magnatic EV">
-            <div class="absolute inset-0 bg-black/60"></div>
-        </div>
-
-        <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12 text-center flex flex-col items-center justify-center" id="hero-text-block">
-            <p class="text-brand-500 text-[11px] font-bold uppercase tracking-[0.4em] mb-6 fade-up">magnaticev.com</p>
-            <h1 class="text-[11vw] sm:text-6xl md:text-7xl lg:text-[6.5rem] font-black text-white tracking-tighter leading-[0.95] fade-up">
-                POWERING<br>THE NEXT <span class="text-brand-500">RIDE</span>
-            </h1>
-            <p class="mt-6 md:mt-8 text-sm md:text-base text-white/50 font-light max-w-lg mx-auto leading-relaxed fade-up">
-                Advanced Lithium-Ion Batteries for Electric Mobility. Engineered for longer range, faster charging, and dependable performance.
-            </p>
-            <div class="mt-10 flex flex-col sm:flex-row gap-4 fade-up">
-                <div class="magnetic-trigger p-1"><a href="#products-section" class="magnetic-btn btn-solid">Explore Batteries</a></div>
-                <div class="magnetic-trigger p-1"><a href="#tech-section" class="magnetic-btn btn-cinematic">Discover Technology <span class="arrow">&rarr;</span></a></div>
-            </div>
+            <img src="/images/banner_mobile.png" class="block md:hidden w-full h-full object-cover" id="hero-battery-img-mobile" alt="Magnatic EV">
+            <img src="/images/banner_desktop.png" class="hidden md:block w-full h-full object-cover" id="hero-battery-img-desktop" alt="Magnatic EV">
         </div>
 
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none">
