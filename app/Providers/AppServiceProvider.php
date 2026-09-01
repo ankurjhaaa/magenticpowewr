@@ -24,6 +24,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+
+        \Illuminate\Support\Facades\View::composer('layouts.public', function ($view) {
+            $sidebarCategories = \App\Models\Category::active()
+                ->ordered()
+                ->with(['products' => function($q) {
+                    $q->active()->orderBy('name');
+                }])
+                ->get();
+            $view->with('sidebarCategories', $sidebarCategories);
+        });
     }
 
     /**

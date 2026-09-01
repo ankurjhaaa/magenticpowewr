@@ -135,6 +135,7 @@ class DatabaseSeeder extends Seeder
         $catLFP = Category::where('slug', 'lfp-batteries')->first();
         $catNMC = Category::where('slug', 'nmc-batteries')->first();
         $catRickshaw = Category::where('slug', 'e-rickshaw-batteries')->first();
+        $catESS = Category::where('slug', 'energy-storage-systems')->first();
         $brandMain = Brand::where('slug', 'magnetic-power')->first();
 
         if ($catLFP && $brandMain) {
@@ -179,30 +180,151 @@ class DatabaseSeeder extends Seeder
                     'is_active' => true,
                     'sort_order' => 3,
                 ],
+                // Add more LFP
+                [
+                    'slug' => 'lfp-72v-50ah-heavy-scooter',
+                    'category_id' => $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '72V 50Ah LFP Heavy Scooter',
+                    'short_description' => 'Extended range battery for high-speed two wheelers.',
+                    'description' => 'Designed for long intercity commutes with rapid charging capability and thermal management.',
+                    'is_active' => true,
+                    'sort_order' => 4,
+                ],
+                [
+                    'slug' => 'lfp-48v-12ah-compact',
+                    'category_id' => $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '48V 12Ah LFP Compact',
+                    'short_description' => 'Small form factor battery for pedelecs.',
+                    'description' => 'A lightweight solution for casual riders needing occasional electric assist.',
+                    'is_active' => true,
+                    'sort_order' => 5,
+                ],
+                [
+                    'slug' => 'lfp-60v-40ah-pro-series',
+                    'category_id' => $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '60V 40Ah LFP Pro Series',
+                    'short_description' => 'Professional grade battery for delivery fleets.',
+                    'description' => 'Optimized for commercial delivery riders. Ensures consistent voltage under heavy load.',
+                    'is_active' => true,
+                    'sort_order' => 6,
+                ],
+                // Add more NMC
+                [
+                    'slug' => 'nmc-60v-24ah-slim',
+                    'category_id' => $catNMC->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '60V 24Ah NMC Slim Pack',
+                    'short_description' => 'Slim profile NMC battery for modern aesthetics.',
+                    'description' => 'High energy density allows this pack to be 30% slimmer than standard models.',
+                    'is_active' => true,
+                    'sort_order' => 7,
+                ],
+                [
+                    'slug' => 'nmc-48v-20ah-standard',
+                    'category_id' => $catNMC->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '48V 20Ah NMC Standard',
+                    'short_description' => 'The standard NMC solution for everyday riders.',
+                    'description' => 'A balanced approach to cost, lifespan, and energy density.',
+                    'is_active' => true,
+                    'sort_order' => 8,
+                ],
+                [
+                    'slug' => 'nmc-72v-60ah-touring',
+                    'category_id' => $catNMC->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '72V 60Ah NMC Touring',
+                    'short_description' => 'Massive capacity for touring electric motorcycles.',
+                    'description' => 'Never worry about range anxiety again with our highest capacity NMC touring pack.',
+                    'is_active' => true,
+                    'sort_order' => 9,
+                ],
+                // Add ESS
+                [
+                    'slug' => 'ess-48v-100ah-wall-mount',
+                    'category_id' => $catESS->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '48V 100Ah ESS Wall Mount',
+                    'short_description' => 'Residential energy storage system.',
+                    'description' => 'Store solar energy for night-time use with this sleek, wall-mounted 5kWh system.',
+                    'is_active' => true,
+                    'sort_order' => 10,
+                ],
+                [
+                    'slug' => 'ess-48v-200ah-rack',
+                    'category_id' => $catESS->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '48V 200Ah ESS Rack System',
+                    'short_description' => 'Commercial scale rack-mountable storage.',
+                    'description' => 'Scalable 10kWh server-rack style batteries for large commercial deployments.',
+                    'is_active' => true,
+                    'sort_order' => 11,
+                ],
+                [
+                    'slug' => 'ess-51-2v-50ah-telecom',
+                    'category_id' => $catESS->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '51.2V 50Ah ESS Telecom Base',
+                    'short_description' => 'Reliable backup for telecom towers.',
+                    'description' => 'Built to withstand extreme temperatures and provide uninterrupted power to communication arrays.',
+                    'is_active' => true,
+                    'sort_order' => 12,
+                ],
+                // Add more Rickshaw
+                [
+                    'slug' => 'lfp-48v-80ah-e-rickshaw',
+                    'category_id' => $catRickshaw->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '48V 80Ah E-Rickshaw Pack',
+                    'short_description' => 'Efficient power for standard e-rickshaws.',
+                    'description' => 'The perfect balance of weight and range for city-based passenger transport.',
+                    'is_active' => true,
+                    'sort_order' => 13,
+                ],
+                [
+                    'slug' => 'lfp-60v-100ah-e-loader',
+                    'category_id' => $catRickshaw->id ?? $catLFP->id,
+                    'brand_id' => $brandMain->id,
+                    'name' => '60V 100Ah E-Loader Heavy',
+                    'short_description' => 'Maximum torque for cargo loaders.',
+                    'description' => 'Designed specifically to handle the high discharge currents required by heavy cargo e-loaders.',
+                    'is_active' => true,
+                    'sort_order' => 14,
+                ],
+            ];
+
+            // Define the 3 source images
+            $sourceImages = [
+                public_path('images/product.png'),
+                public_path('images/product2.png'),
+                public_path('images/product3.png'),
             ];
 
             foreach ($productsData as $prod) {
                 $productModel = Product::query()->firstOrCreate(['slug' => $prod['slug']], $prod);
 
-                // Add 3 images using public/images/product.png
-                $sourceFile = public_path('images/product.png');
-                if (file_exists($sourceFile)) {
-                    $targetDir = storage_path('app/public/products');
-                    if (!is_dir($targetDir)) {
-                        mkdir($targetDir, 0755, true);
-                    }
-                    $fileName = 'product_' . $productModel->id . '.png';
-                    $targetPath = $targetDir . '/' . $fileName;
-                    copy($sourceFile, $targetPath);
-                    
-                    for ($i = 0; $i < 3; $i++) {
+                $targetDir = storage_path('app/public/products');
+                if (!is_dir($targetDir)) {
+                    mkdir($targetDir, 0755, true);
+                }
+
+                // Attach all 3 images to the product
+                foreach ($sourceImages as $i => $sourceFile) {
+                    if (file_exists($sourceFile)) {
+                        $fileName = 'product_' . $productModel->id . '_' . $i . '_' . time() . '.png';
+                        $targetPath = $targetDir . '/' . $fileName;
+                        copy($sourceFile, $targetPath);
+                        
                         \App\Models\ProductImage::updateOrCreate([
                             'product_id' => $productModel->id,
                             'sort_order' => $i,
                         ], [
                             'image_path' => 'products/' . $fileName,
                             'alt_text' => $productModel->name . ' - Image ' . ($i + 1),
-                            'is_primary' => $i === 0,
+                            'is_primary' => $i === 0, // First image is primary
                         ]);
                     }
                 }

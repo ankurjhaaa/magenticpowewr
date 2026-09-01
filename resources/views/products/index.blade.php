@@ -6,28 +6,9 @@
 @section('content')
 
     {{-- ============================================================
-         HERO SECTION (Cinematic Header)
-         ============================================================ --}}
-    <section class="h-[60vh] w-full bg-black relative flex items-center justify-center overflow-hidden border-b border-white/5 pt-20">
-        <div class="absolute inset-0 flex items-center justify-center z-0 opacity-5 pointer-events-none select-none">
-            <h1 class="text-[25vw] font-black text-white whitespace-nowrap">PRODUCTS</h1>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 text-center fade-up">
-            <p class="text-brand-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Our Solutions</p>
-            <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter uppercase mb-6 leading-none">
-                POWERING EVERY <br>APPLICATION.
-            </h2>
-            <p class="text-white/40 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-                From high-speed electric motorcycles to heavy-duty commercial rickshaws, we engineer lithium-ion battery packs that deliver uncompromising performance, safety, and longevity.
-            </p>
-        </div>
-    </section>
-
-    {{-- ============================================================
          CATEGORY FILTER / TABS
          ============================================================ --}}
-    <section class="bg-black border-b border-white/5 sticky top-[5rem] lg:top-[6rem] z-40">
+    <section class="bg-black/90 backdrop-blur-md border-b border-white/5 sticky top-20 z-40 mt-20">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <div class="flex overflow-x-auto hide-scrollbar py-6 gap-8 items-center">
                 <a href="{{ route('products') }}" class="whitespace-nowrap text-[10px] font-bold uppercase tracking-widest {{ !request('category') ? 'text-brand-500' : 'text-white/40 hover:text-white transition-colors' }}">
@@ -45,7 +26,7 @@
     {{-- ============================================================
          PRODUCTS GRID
          ============================================================ --}}
-    <section class="py-24 md:py-32 bg-black relative z-10 min-h-[50vh]">
+    <section class="pt-8 pb-24 md:pt-12 md:pb-32 bg-black relative z-10 min-h-[50vh]">
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             
             @if($products->isEmpty())
