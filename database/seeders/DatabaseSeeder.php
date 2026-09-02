@@ -478,6 +478,11 @@ class DatabaseSeeder extends Seeder
             ['key' => 'support_whatsapp', 'value' => '+919876543210', 'group' => 'contact', 'type' => 'string'],
             ['key' => 'support_phone', 'value' => '+91 98765 43210', 'group' => 'contact', 'type' => 'string'],
             ['key' => 'support_email', 'value' => 'support@magneticev.com', 'group' => 'contact', 'type' => 'string'],
+            ['key' => 'social_facebook', 'value' => 'https://facebook.com/magneticev', 'group' => 'social', 'type' => 'string'],
+            ['key' => 'social_twitter', 'value' => 'https://twitter.com/magneticev', 'group' => 'social', 'type' => 'string'],
+            ['key' => 'social_instagram', 'value' => 'https://instagram.com/magneticev', 'group' => 'social', 'type' => 'string'],
+            ['key' => 'social_linkedin', 'value' => 'https://linkedin.com/company/magneticev', 'group' => 'social', 'type' => 'string'],
+            ['key' => 'social_youtube', 'value' => 'https://youtube.com/magneticev', 'group' => 'social', 'type' => 'string'],
         ];
 
         foreach ($settings as $setting) {
