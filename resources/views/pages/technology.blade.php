@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
-@section('title', 'Technology — Magnatic EV')
-@section('meta_description', 'Explore the advanced engineering, Smart BMS, and robust cell chemistry that powers Magnatic EV lithium-ion batteries.')
+@section('title', 'Technology — Magnetic EV')
+@section('meta_description', 'Explore the advanced engineering, Smart BMS, and robust cell chemistry that powers Magnetic EV lithium-ion batteries.')
 
 @section('content')
 

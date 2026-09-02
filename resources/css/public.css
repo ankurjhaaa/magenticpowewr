@@ -6,7 +6,7 @@
 @theme {
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-    /* Neon Green / Lime — Magnatic EV */
+    /* Neon Green / Lime — Magnetic EV */
     --color-brand-400: #d9fb3f;
     --color-brand-500: #ccff00;
     --color-brand-600: #b3e600;
@@ -203,7 +203,7 @@ body { -ms-overflow-style: none; scrollbar-width: none; }
     .tech-callout .absolute { display: none; } /* Hide connector lines on mobile */
 }
 
-/* ========== WHY MAGNATIC HORIZONTAL SCROLL ========== */
+/* ========== WHY MAGNETIC HORIZONTAL SCROLL ========== */
 .horizontal-panel {
     width: 100vw;
     height: 100vh;

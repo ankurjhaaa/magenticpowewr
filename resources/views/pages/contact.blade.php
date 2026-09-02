@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
-@section('title', 'Contact Us — Magnatic EV')
-@section('meta_description', 'Get in touch with Magnatic EV. Inquire about battery products, dealership opportunities, or technical support.')
+@section('title', 'Contact Us — Magnetic EV')
+@section('meta_description', 'Get in touch with Magnetic EV. Inquire about battery products, dealership opportunities, or technical support.')
 
 @section('content')
 
@@ -76,7 +76,7 @@
             <div class="w-full md:w-1/3 flex flex-col gap-12 fade-up">
                 <div>
                     <h4 class="text-[10px] uppercase tracking-widest text-brand-500 font-bold mb-4">Headquarters</h4>
-                    <p class="text-white/60 text-sm leading-relaxed mb-1">Magnatic EV Pvt. Ltd.</p>
+                    <p class="text-white/60 text-sm leading-relaxed mb-1">Magnetic EV Pvt. Ltd.</p>
                     <p class="text-white/60 text-sm leading-relaxed mb-1">Industrial Area, Sector 62</p>
                     <p class="text-white/60 text-sm leading-relaxed">Noida, UP 201309, India</p>
                 </div>
@@ -85,7 +85,7 @@
                     <h4 class="text-[10px] uppercase tracking-widest text-brand-500 font-bold mb-4">Contact Lines</h4>
                     <p class="text-white/60 text-sm leading-relaxed mb-1"><span class="text-white/40 mr-2">Sales:</span> +91 98765 43210</p>
                     <p class="text-white/60 text-sm leading-relaxed mb-1"><span class="text-white/40 mr-2">Support:</span> +91 91234 56789</p>
-                    <p class="text-white/60 text-sm leading-relaxed"><span class="text-white/40 mr-2">Email:</span> info@magnaticev.com</p>
+                    <p class="text-white/60 text-sm leading-relaxed"><span class="text-white/40 mr-2">Email:</span> info@magneticev.com</p>
                 </div>
 
                 <div>

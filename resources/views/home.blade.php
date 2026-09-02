@@ -7,8 +7,8 @@
          ============================================================ --}}
     <section id="scene-hero" class="w-full h-[100svh] bg-black relative overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 z-0">
-            <img src="/images/banner_mobile.png" class="block md:hidden w-full h-full object-fill" id="hero-battery-img-mobile" alt="Magnatic EV">
-            <img src="/images/banner_desktop.png" class="hidden md:block w-full h-full object-fill" id="hero-battery-img-desktop" alt="Magnatic EV">
+            <img src="/images/banner_mobile.png" class="block md:hidden w-full h-full object-fill" id="hero-battery-img-mobile" alt="Magnetic EV">
+            <img src="/images/banner_desktop.png" class="hidden md:block w-full h-full object-fill" id="hero-battery-img-desktop" alt="Magnetic EV">
         </div>
 
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none">

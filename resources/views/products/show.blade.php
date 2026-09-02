@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', $product->name . ' — Magnatic EV')
+@section('title', $product->name . ' — Magnetic EV')
 @section('meta_description', $product->short_description)
 
 @section('header_left')

@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
-@section('title', 'Batteries & Solutions — Magnatic EV')
-@section('meta_description', 'Explore Magnatic EV battery solutions for electric scooters, e-rickshaws, and energy storage.')
+@section('title', 'Batteries & Solutions — Magnetic EV')
+@section('meta_description', 'Explore Magnetic EV battery solutions for electric scooters, e-rickshaws, and energy storage.')
 
 @section('content')
 

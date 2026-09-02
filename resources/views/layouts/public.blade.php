@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Magnatic EV — Advanced Lithium-Ion Batteries for Electric Mobility')</title>
-    <meta name="description" content="@yield('meta_description', 'Magnatic EV — High-performance lithium-ion battery solutions for electric scooters and two-wheelers in India.')">
+    <title>@yield('title', 'Magnetic EV — Advanced Lithium-Ion Batteries for Electric Mobility')</title>
+    <meta name="description" content="@yield('meta_description', 'Magnetic EV — High-performance lithium-ion battery solutions for electric scooters and two-wheelers in India.')">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,7 @@
                 {{-- Logo (Centered on Mobile via Absolute, Static Left on Desktop) --}}
                 <div class="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex justify-center items-center">
                     <a href="{{ route('home') }}" class="flex items-center group">
-                        <span class="text-xl font-black tracking-tight text-white uppercase">magnatic<span class="text-brand-500">ev</span></span>
+                        <span class="text-xl font-black tracking-tight text-white uppercase">magnetic<span class="text-brand-500">ev</span></span>
                     </a>
                 </div>
             </div>
@@ -271,7 +271,7 @@
                         <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        <span class="text-lg font-bold tracking-tight text-white lowercase">magnatic<span class="text-brand-500">ev</span></span>
+                        <span class="text-lg font-bold tracking-tight text-white lowercase">magnetic<span class="text-brand-500">ev</span></span>
                     </a>
                     <p class="text-white/40 text-sm max-w-xs leading-relaxed">Advanced lithium-ion battery solutions for India's electric mobility future.</p>
                 </div>
@@ -310,7 +310,7 @@
             </div>
             
             <div class="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white/30 font-medium tracking-widest uppercase">
-                <p>&copy; {{ date('Y') }} Magnatic EV. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} Magnetic EV. All rights reserved.</p>
                 <div class="flex gap-6">
                     <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
                     <a href="#" class="hover:text-white transition-colors">Privacy</a>
