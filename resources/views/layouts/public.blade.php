@@ -59,16 +59,18 @@
                         <div class="fixed top-20 inset-x-0 bg-black/95 backdrop-blur-xl border-y border-white/10 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 z-40 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                             <div class="max-w-7xl mx-auto flex h-[400px]">
                                 {{-- Mega Menu Left: Categories --}}
-                                <div class="w-1/4 border-r border-white/5 p-8 flex flex-col gap-2">
-                                    <span class="text-[9px] uppercase tracking-widest font-bold text-white/40 mb-6 block">Categories</span>
-                                    @foreach($sidebarCategories as $index => $category)
-                                        <button type="button" 
-                                                class="mega-category-btn text-left px-5 py-4 text-xs font-bold uppercase tracking-widest transition-all hover:bg-white/5 {{ $index === 0 ? 'text-brand-500 bg-white/5 border-l-2 border-brand-500' : 'text-white border-l-2 border-transparent' }}"
-                                                data-target="mega-products-{{ $category->id }}"
-                                                onmouseenter="showMegaProducts('{{ $category->id }}', this)">
-                                            {{ $category->name }}
-                                        </button>
-                                    @endforeach
+                                <div class="w-1/4 border-r border-white/5 p-8 flex flex-col h-full">
+                                    <span class="text-[9px] uppercase tracking-widest font-bold text-white/40 mb-6 block shrink-0">Categories</span>
+                                    <div class="flex-1 flex flex-col gap-2 overflow-y-auto hide-scrollbar pb-4">
+                                        @foreach($sidebarCategories as $index => $category)
+                                            <button type="button" 
+                                                    class="mega-category-btn text-left px-5 py-4 text-xs font-bold uppercase tracking-widest transition-all shrink-0 hover:bg-white/5 {{ $index === 0 ? 'text-brand-500 bg-white/5 border-l-2 border-brand-500' : 'text-white border-l-2 border-transparent' }}"
+                                                    data-target="mega-products-{{ $category->id }}"
+                                                    onmouseenter="showMegaProducts('{{ $category->id }}', this)">
+                                                {{ $category->name }}
+                                            </button>
+                                        @endforeach
+                                    </div>
                                 </div>
 
                                 {{-- Mega Menu Right: Products (Dynamic) --}}
