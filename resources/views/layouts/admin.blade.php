@@ -7,8 +7,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased h-screen overflow-hidden">
-    <div x-data="{ sidebarOpen: false }" class="h-full flex">
+<body class="bg-gray-50 text-gray-900 antialiased h-dvh overflow-hidden">
+    <div x-data="{ sidebarOpen: false }" class="h-full flex min-h-0">
 
         {{-- Desktop sidebar --}}
         <aside class="hidden lg:flex lg:flex-col lg:w-64 lg:shrink-0 h-full overflow-hidden border-r border-gray-200 bg-white">
@@ -53,10 +53,10 @@
         </div>
 
         {{-- Main column --}}
-        <div class="flex-1 flex flex-col h-full min-w-0 overflow-hidden">
+        <div class="flex-1 flex flex-col h-full min-w-0 min-h-0 overflow-hidden">
             <x-admin.header :title="$title ?? 'Dashboard'" />
 
-            <main class="thin-scrollbar flex-1 overflow-y-auto p-4 lg:p-8">
+            <main class="thin-scrollbar flex-1 min-h-0 overflow-y-auto overscroll-contain p-4 lg:p-8">
                 {{ $slot }}
             </main>
         </div>
