@@ -5,10 +5,10 @@
         {{-- ============================================================
          SCENE 01 — HERO
          ============================================================ --}}
-    <section id="scene-hero" class="scene-container bg-black relative">
+    <section id="scene-hero" class="w-full h-[100svh] bg-black relative overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 z-0">
-            <img src="/images/banner_mobile.png" class="block md:hidden w-full h-full object-cover" id="hero-battery-img-mobile" alt="Magnatic EV">
-            <img src="/images/banner_desktop.png" class="hidden md:block w-full h-full object-cover" id="hero-battery-img-desktop" alt="Magnatic EV">
+            <img src="/images/banner_mobile.png" class="block md:hidden w-full h-full object-fill" id="hero-battery-img-mobile" alt="Magnatic EV">
+            <img src="/images/banner_desktop.png" class="hidden md:block w-full h-full object-fill" id="hero-battery-img-desktop" alt="Magnatic EV">
         </div>
 
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none">
@@ -23,8 +23,7 @@
     <div id="range-sequence-wrapper" class="relative bg-black border-t border-white/5" style="height: 300vh;">
         <section class="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center bg-black">
             <div class="absolute top-20 md:top-24 z-20 text-center px-4">
-                <p class="text-brand-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-2 fade-up">Performance</p>
-                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tighter fade-up">GO FARTHER.</h2>
+                <!-- Text removed as requested -->
             </div>
 
             {{-- Road --}}
@@ -76,7 +75,7 @@
         @foreach($products as $product)
         <section class="sticky top-0 h-[100svh] w-full flex items-center bg-black overflow-hidden border-t border-white/5">
             
-            <div class="w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-16 relative z-10 h-full py-16 md:py-0">
+            <div class="w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col-reverse {{ $loop->odd ? 'md:flex-row-reverse' : 'md:flex-row' }} items-center justify-between gap-8 md:gap-16 relative z-10 h-full py-16 md:py-0">
                 
                 {{-- Text Content --}}
                 <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left h-1/2 md:h-full pb-8 md:pb-0">
@@ -88,7 +87,9 @@
                         @endif
                     </div>
                     
-                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter mb-4 uppercase">{{ $product->name }}</h3>
+                    <a href="{{ route('products.show', $product->slug) }}" class="block group">
+                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tighter mb-4 uppercase group-hover:text-brand-500 transition-colors duration-300">{{ $product->name }}</h3>
+                    </a>
                     <p class="text-white/40 text-sm leading-relaxed max-w-md mx-auto md:mx-0 mb-6">{{ $product->short_description }}</p>
                     
                     {{-- Specs Grid --}}
@@ -124,7 +125,9 @@
                     </div>
 
                     @if($product->images->count() > 0)
-                        <img src="{{ Storage::url($product->images->first()->image_path) }}" alt="{{ $product->name }}" class="w-[85%] h-[85%] object-contain relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                        <a href="{{ route('products.show', $product->slug) }}" class="relative z-10 w-[85%] h-[85%] flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-500">
+                            <img src="{{ Storage::url($product->images->first()->image_path) }}" alt="{{ $product->name }}" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+                        </a>
                     @else
                         <div class="text-white/10 uppercase tracking-[0.4em] text-[10px] font-bold relative z-10">No Image Available</div>
                     @endif
