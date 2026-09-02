@@ -173,20 +173,9 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-12">
             <h3 class="text-2xl font-black text-white uppercase mb-8 lg:mb-12 tracking-tighter">Related Solutions</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($relatedProducts as $related)
-                    <div class="bg-black border border-white/5 hover:border-white/20 transition-all duration-300 group relative flex flex-col rounded-none">
-                        <a href="{{ route('products.show', $related->slug) }}" class="absolute inset-0 z-20"></a>
-                        <div class="h-48 bg-white/[0.02] flex items-center justify-center border-b border-white/5 p-4">
-                            @if($related->images->count() > 0)
-                                <img src="{{ Storage::url($related->images->first()->image_path) }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
-                            @endif
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-black text-white uppercase mb-2 group-hover:text-brand-500 transition-colors">{{ $related->name }}</h4>
-                            <span class="text-brand-500 text-[9px] font-bold uppercase tracking-widest">View Details &rarr;</span>
-                        </div>
-                    </div>
+                    <x-product-card :product="$related" />
                 @endforeach
             </div>
         </div>
