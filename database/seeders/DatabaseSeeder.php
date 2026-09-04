@@ -72,10 +72,10 @@ class DatabaseSeeder extends Seeder
         // 1. Categories
         // ----------------------------------------------------
         $categoriesData = [
-            ['slug' => 'lfp-batteries', 'name' => 'LFP Batteries', 'description' => 'Lithium Iron Phosphate (LFP) battery products known for high safety and long cycle life.', 'is_active' => true, 'sort_order' => 0],
-            ['slug' => 'nmc-batteries', 'name' => 'NMC Batteries', 'description' => 'Nickel Manganese Cobalt (NMC) battery products offering high energy density.', 'is_active' => true, 'sort_order' => 1],
-            ['slug' => 'energy-storage-systems', 'name' => 'Energy Storage Systems', 'description' => 'Complete energy storage solutions for residential and commercial use.', 'is_active' => true, 'sort_order' => 2],
-            ['slug' => 'e-rickshaw-batteries', 'name' => 'E-Rickshaw Batteries', 'description' => 'Heavy-duty batteries tailored for 3-wheeler electric rickshaws.', 'is_active' => true, 'sort_order' => 3],
+            ['slug' => 'lfp-48v-series', 'name' => '48V LFP Series', 'description' => 'High-performance 48V Lithium Iron Phosphate (LFP) battery packs.', 'is_active' => true, 'sort_order' => 0],
+            ['slug' => 'lfp-51v-series', 'name' => '51.2V LFP Series', 'description' => 'Robust 51.2V LFP batteries, ideal for E-Rickshaws and commercial use.', 'is_active' => true, 'sort_order' => 1],
+            ['slug' => 'lfp-60v-series', 'name' => '60.8V LFP Series', 'description' => 'Powerful 60.8V LFP batteries designed for high-speed electric scooters.', 'is_active' => true, 'sort_order' => 2],
+            ['slug' => 'lfp-72v-series', 'name' => '72V LFP Series', 'description' => 'Maximum range 72V (73.2V/73.6V) LFP batteries for performance EVs.', 'is_active' => true, 'sort_order' => 3],
         ];
 
         foreach ($categoriesData as $cat) {
@@ -132,199 +132,97 @@ class DatabaseSeeder extends Seeder
         // ----------------------------------------------------
         // 5. Products
         // ----------------------------------------------------
-        $catLFP = Category::where('slug', 'lfp-batteries')->first();
-        $catNMC = Category::where('slug', 'nmc-batteries')->first();
-        $catRickshaw = Category::where('slug', 'e-rickshaw-batteries')->first();
-        $catESS = Category::where('slug', 'energy-storage-systems')->first();
+                $cat48 = Category::where('slug', 'lfp-48v-series')->first();
+        $cat51 = Category::where('slug', 'lfp-51v-series')->first();
+        $cat60 = Category::where('slug', 'lfp-60v-series')->first();
+        $cat72 = Category::where('slug', 'lfp-72v-series')->first();
         $brandMain = Brand::where('slug', 'magnetic-power')->first();
 
-        if ($catLFP && $brandMain) {
-            $productsData = [
-                [
-                    'slug' => 'lfp-60v-30ah-scooter-battery',
-                    'category_id' => $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '60V 30Ah LFP Scooter Battery',
-                    'short_description' => 'High-performance LFP battery pack for 60V electric scooters.',
-                    'description' => 'A durable, safe LFP (Lithium Iron Phosphate) battery pack designed for high-speed electric scooters. Features a smart BMS with short circuit, overcharge, and thermal protection.',
-                    'is_active' => true,
-                    'sort_order' => 0,
-                ],
-                [
-                    'slug' => 'nmc-72v-40ah-bike-battery',
-                    'category_id' => $catNMC->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '72V 40Ah NMC Bike Battery',
-                    'short_description' => 'High energy density NMC battery for performance electric bikes.',
-                    'description' => 'Engineered for maximum range and acceleration. Our 72V NMC pack offers unparalleled energy density with an active balancing BMS to extend overall lifespan.',
-                    'is_active' => true,
-                    'sort_order' => 1,
-                ],
-                [
-                    'slug' => 'lfp-51-2v-100ah-e-rickshaw',
-                    'category_id' => $catRickshaw->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '51.2V 100Ah LFP E-Rickshaw Battery',
-                    'short_description' => 'Heavy-duty 51.2V 100Ah LFP battery for commercial 3-wheelers.',
-                    'description' => 'Replace your traditional lead-acid batteries with our advanced LFP pack. Designed specifically for e-rickshaws, it charges 3x faster, lasts 5x longer, and requires zero maintenance.',
-                    'is_active' => true,
-                    'sort_order' => 2,
-                ],
-                [
-                    'slug' => 'lfp-48v-24ah-ebike',
-                    'category_id' => $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '48V 24Ah LFP E-Bike Battery',
-                    'short_description' => 'Compact and lightweight LFP battery for electric bicycles.',
-                    'description' => 'Perfect for daily commutes. This 48V battery fits neatly into most e-bike frames and provides a steady discharge curve for consistent power delivery.',
-                    'is_active' => true,
-                    'sort_order' => 3,
-                ],
-                // Add more LFP
-                [
-                    'slug' => 'lfp-72v-50ah-heavy-scooter',
-                    'category_id' => $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '72V 50Ah LFP Heavy Scooter',
-                    'short_description' => 'Extended range battery for high-speed two wheelers.',
-                    'description' => 'Designed for long intercity commutes with rapid charging capability and thermal management.',
-                    'is_active' => true,
-                    'sort_order' => 4,
-                ],
-                [
-                    'slug' => 'lfp-48v-12ah-compact',
-                    'category_id' => $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '48V 12Ah LFP Compact',
-                    'short_description' => 'Small form factor battery for pedelecs.',
-                    'description' => 'A lightweight solution for casual riders needing occasional electric assist.',
-                    'is_active' => true,
-                    'sort_order' => 5,
-                ],
-                [
-                    'slug' => 'lfp-60v-40ah-pro-series',
-                    'category_id' => $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '60V 40Ah LFP Pro Series',
-                    'short_description' => 'Professional grade battery for delivery fleets.',
-                    'description' => 'Optimized for commercial delivery riders. Ensures consistent voltage under heavy load.',
-                    'is_active' => true,
-                    'sort_order' => 6,
-                ],
-                // Add more NMC
-                [
-                    'slug' => 'nmc-60v-24ah-slim',
-                    'category_id' => $catNMC->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '60V 24Ah NMC Slim Pack',
-                    'short_description' => 'Slim profile NMC battery for modern aesthetics.',
-                    'description' => 'High energy density allows this pack to be 30% slimmer than standard models.',
-                    'is_active' => true,
-                    'sort_order' => 7,
-                ],
-                [
-                    'slug' => 'nmc-48v-20ah-standard',
-                    'category_id' => $catNMC->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '48V 20Ah NMC Standard',
-                    'short_description' => 'The standard NMC solution for everyday riders.',
-                    'description' => 'A balanced approach to cost, lifespan, and energy density.',
-                    'is_active' => true,
-                    'sort_order' => 8,
-                ],
-                [
-                    'slug' => 'nmc-72v-60ah-touring',
-                    'category_id' => $catNMC->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '72V 60Ah NMC Touring',
-                    'short_description' => 'Massive capacity for touring electric motorcycles.',
-                    'description' => 'Never worry about range anxiety again with our highest capacity NMC touring pack.',
-                    'is_active' => true,
-                    'sort_order' => 9,
-                ],
-                // Add ESS
-                [
-                    'slug' => 'ess-48v-100ah-wall-mount',
-                    'category_id' => $catESS->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '48V 100Ah ESS Wall Mount',
-                    'short_description' => 'Residential energy storage system.',
-                    'description' => 'Store solar energy for night-time use with this sleek, wall-mounted 5kWh system.',
-                    'is_active' => true,
-                    'sort_order' => 10,
-                ],
-                [
-                    'slug' => 'ess-48v-200ah-rack',
-                    'category_id' => $catESS->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '48V 200Ah ESS Rack System',
-                    'short_description' => 'Commercial scale rack-mountable storage.',
-                    'description' => 'Scalable 10kWh server-rack style batteries for large commercial deployments.',
-                    'is_active' => true,
-                    'sort_order' => 11,
-                ],
-                [
-                    'slug' => 'ess-51-2v-50ah-telecom',
-                    'category_id' => $catESS->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '51.2V 50Ah ESS Telecom Base',
-                    'short_description' => 'Reliable backup for telecom towers.',
-                    'description' => 'Built to withstand extreme temperatures and provide uninterrupted power to communication arrays.',
-                    'is_active' => true,
-                    'sort_order' => 12,
-                ],
-                // Add more Rickshaw
-                [
-                    'slug' => 'lfp-48v-80ah-e-rickshaw',
-                    'category_id' => $catRickshaw->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '48V 80Ah E-Rickshaw Pack',
-                    'short_description' => 'Efficient power for standard e-rickshaws.',
-                    'description' => 'The perfect balance of weight and range for city-based passenger transport.',
-                    'is_active' => true,
-                    'sort_order' => 13,
-                ],
-                [
-                    'slug' => 'lfp-60v-100ah-e-loader',
-                    'category_id' => $catRickshaw->id ?? $catLFP->id,
-                    'brand_id' => $brandMain->id,
-                    'name' => '60V 100Ah E-Loader Heavy',
-                    'short_description' => 'Maximum torque for cargo loaders.',
-                    'description' => 'Designed specifically to handle the high discharge currents required by heavy cargo e-loaders.',
-                    'is_active' => true,
-                    'sort_order' => 14,
-                ],
-            ];
+        // Fetch or create necessary specifications
+        $specPower = Specification::firstOrCreate(['name' => 'Power Output'], ['unit' => 'W', 'is_active' => true]);
+        $specWarranty = Specification::firstOrCreate(['name' => 'Warranty'], ['unit' => 'Years', 'is_active' => true]);
+        $specRange = Specification::firstOrCreate(['name' => 'Estimated Range'], ['unit' => 'km', 'is_active' => true]);
+        $specCycleLife = Specification::firstOrCreate(['name' => 'Cycle Life'], ['unit' => 'Cycles', 'is_active' => true]);
+        $specChemistry = Specification::firstOrCreate(['name' => 'Chemistry'], ['unit' => '', 'is_active' => true]);
+        $specWeight = Specification::firstOrCreate(['name' => 'Weight'], ['unit' => 'Kg', 'is_active' => true]);
 
-            // Define the 3 source images
+        if ($brandMain) {
             $sourceImages = [
                 public_path('images/product.png'),
                 public_path('images/product2.png'),
                 public_path('images/product3.png'),
             ];
 
-            foreach ($productsData as $prod) {
-                $productModel = Product::query()->firstOrCreate(['slug' => $prod['slug']], $prod);
+            $targetDir = storage_path('app/public/products');
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0755, true);
+            }
 
-                $targetDir = storage_path('app/public/products');
-                if (!is_dir($targetDir)) {
-                    mkdir($targetDir, 0755, true);
-                }
+            $batteries = [
+                ['voltage' => '48', 'capacity' => '30', 'watt' => '1440', 'warranty' => '4', 'range' => '55-60', 'weight' => '18', 'cat' => $cat48],
+                ['voltage' => '48', 'capacity' => '45', 'watt' => '1920', 'warranty' => '4', 'range' => '80-90', 'weight' => '22', 'cat' => $cat48],
+                ['voltage' => '51.2', 'capacity' => '30', 'watt' => '1536', 'warranty' => '4', 'range' => '60-65', 'weight' => '19', 'cat' => $cat51],
+                ['voltage' => '51.2', 'capacity' => '45', 'watt' => '2304', 'warranty' => '4', 'range' => '85-100', 'weight' => '24', 'cat' => $cat51],
+                ['voltage' => '60.8', 'capacity' => '30', 'watt' => '1824', 'warranty' => '4', 'range' => '65-80', 'weight' => '21', 'cat' => $cat60],
+                ['voltage' => '60.8', 'capacity' => '45', 'watt' => '2736', 'warranty' => '4', 'range' => '110-130', 'weight' => '28', 'cat' => $cat60],
+                ['voltage' => '73.6', 'capacity' => '30', 'watt' => '2208', 'warranty' => '4', 'range' => '100-120', 'weight' => '25', 'cat' => $cat72],
+                ['voltage' => '73.2', 'capacity' => '45', 'watt' => '3312', 'warranty' => '4', 'range' => '140-165', 'weight' => '34', 'cat' => $cat72],
+            ];
 
-                // Attach all 3 images to the product
+            foreach ($batteries as $index => $bat) {
+                $name = "{$bat['voltage']}V {$bat['capacity']}Ah LFP Battery";
+                $slug = \Illuminate\Support\Str::slug($name);
+
+                $product = Product::query()->firstOrCreate(
+                    ['slug' => $slug],
+                    [
+                        'category_id' => $bat['cat'] ? $bat['cat']->id : null,
+                        'brand_id' => $brandMain->id,
+                        'name' => $name,
+                        'short_description' => "High-performance {$bat['voltage']}V {$bat['capacity']}Ah Lithium Iron Phosphate (LFP) battery with a range of {$bat['range']} km.",
+                        'description' => "This Magnetic Power {$bat['voltage']}V {$bat['capacity']}Ah LFP battery offers outstanding performance, safety, and longevity. Built for high-efficiency electric vehicles, it delivers continuous {$bat['watt']}W power. It features advanced Smart BMS technology and comes with a {$bat['warranty']} Year warranty.",
+                        'is_active' => true,
+                        'sort_order' => $index,
+                    ]
+                );
+
+                $variant = ProductVariant::query()->firstOrCreate(
+                    ['product_id' => $product->id, 'slug' => $slug . '-std'],
+                    [
+                        'sku' => "LFP-{$bat['voltage']}V-{$bat['capacity']}AH",
+                        'name' => 'Standard Edition',
+                        'voltage' => $bat['voltage'],
+                        'capacity' => $bat['capacity'],
+                        'chemistry' => 'LFP',
+                        'is_default' => true,
+                        'is_active' => true,
+                        'sort_order' => 0,
+                    ]
+                );
+
+                $specsToSync = [
+                    $specPower->id => ['value' => $bat['watt'], 'sort_order' => 1],
+                    $specWarranty->id => ['value' => $bat['warranty'], 'sort_order' => 2],
+                    $specRange->id => ['value' => $bat['range'], 'sort_order' => 3],
+                    $specCycleLife->id => ['value' => '2000+', 'sort_order' => 4],
+                    $specChemistry->id => ['value' => 'LFP (Lithium Iron Phosphate)', 'sort_order' => 5],
+                    $specWeight->id => ['value' => $bat['weight'], 'sort_order' => 6],
+                ];
+                $variant->specifications()->syncWithoutDetaching($specsToSync);
+
                 foreach ($sourceImages as $i => $sourceFile) {
                     if (file_exists($sourceFile)) {
-                        $fileName = 'product_' . $productModel->id . '_' . $i . '_' . time() . '.png';
+                        $fileName = 'product_' . $product->id . '_' . $i . '_' . time() . '.png';
                         $targetPath = $targetDir . '/' . $fileName;
                         copy($sourceFile, $targetPath);
                         
                         \App\Models\ProductImage::updateOrCreate([
-                            'product_id' => $productModel->id,
+                            'product_id' => $product->id,
                             'sort_order' => $i,
                         ], [
                             'image_path' => 'products/' . $fileName,
-                            'alt_text' => $productModel->name . ' - Image ' . ($i + 1),
-                            'is_primary' => $i === 0, // First image is primary
+                            'alt_text' => $product->name . ' - Image ' . ($i + 1),
+                            'is_primary' => $i === 0,
                         ]);
                     }
                 }
